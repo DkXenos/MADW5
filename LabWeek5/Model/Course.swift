@@ -7,20 +7,17 @@
 
 import Foundation
 
-/// Possible statuses for a course.
 enum CourseStatus: String, CaseIterable {
     case upcoming = "Upcoming"
     case inProgress = "In Progress"
     case completed = "Completed"
 }
 
-/// Represents a student course with its details.
 struct Course: Identifiable {
     let id: UUID
     let name: String
     let description: String
     let lecturer: String
-    /// System image name used as a lecturer placeholder.
     let lecturerImageName: String
     let credits: Int
     var status: CourseStatus

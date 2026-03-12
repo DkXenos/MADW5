@@ -7,10 +7,7 @@
 
 import Foundation
 
-/// Static dummy data used throughout the app.
 struct SampleData {
-
-    // MARK: - Facilities
 
     static let facilities: [Facility] = [
         Facility(
@@ -32,8 +29,6 @@ struct SampleData {
             iconName: "building.2.fill"
         )
     ]
-
-    // MARK: - Courses
 
     static let courses: [Course] = [
         Course(

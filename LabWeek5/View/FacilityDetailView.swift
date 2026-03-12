@@ -7,15 +7,12 @@
 
 import SwiftUI
 
-/// Shows full details for a single facility, including image, name, location, and description.
 struct FacilityDetailView: View {
     let facility: Facility
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-
-                // MARK: - Facility Image
                 Image(systemName: facility.iconName)
                     .resizable()
                     .scaledToFit()
@@ -25,12 +22,10 @@ struct FacilityDetailView: View {
                     .background(Color(.systemGray6))
                     .cornerRadius(12)
 
-                // MARK: - Name
                 Text(facility.name)
                     .font(.title2)
                     .fontWeight(.bold)
 
-                // MARK: - Location
                 HStack {
                     Text("Location:")
                         .fontWeight(.semibold)
@@ -41,7 +36,6 @@ struct FacilityDetailView: View {
 
                 Divider()
 
-                // MARK: - Description
                 Text(facility.description)
                     .font(.body)
             }
@@ -51,8 +45,6 @@ struct FacilityDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
-
-// MARK: - Preview
 
 #Preview {
     NavigationStack {

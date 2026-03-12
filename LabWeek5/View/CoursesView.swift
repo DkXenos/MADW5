@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-/// Displays a list of student courses.
-/// Tapping a row navigates to the course detail page.
 struct CoursesView: View {
     var viewModel: CampusViewModel
 
@@ -24,15 +22,11 @@ struct CoursesView: View {
     }
 }
 
-// MARK: - Row Component
-
-/// A single row showing course name, lecturer, and a coloured status badge.
 struct CourseRow: View {
     let course: Course
 
     var body: some View {
         HStack {
-            // Lecturer icon
             Image(systemName: course.lecturerImageName)
                 .font(.title2)
                 .foregroundStyle(.gray)
@@ -49,20 +43,15 @@ struct CourseRow: View {
 
             Spacer()
 
-            // Status badge
             StatusBadge(status: course.status)
         }
         .padding(.vertical, 4)
     }
 }
 
-// MARK: - Status Badge
-
-/// A small coloured capsule indicating the course status.
 struct StatusBadge: View {
     let status: CourseStatus
 
-    /// Colour mapped to each status.
     private var color: Color {
         switch status {
         case .upcoming:   return .orange
@@ -82,8 +71,6 @@ struct StatusBadge: View {
             .clipShape(Capsule())
     }
 }
-
-// MARK: - Preview
 
 #Preview {
     CoursesView(viewModel: CampusViewModel())

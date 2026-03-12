@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-/// Home page – the main entry point of the app.
-/// Displays the app title, a brief description, and three summary cards.
 struct HomeView: View {
     var viewModel: CampusViewModel
 
@@ -16,16 +14,9 @@ struct HomeView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
-
-                    // MARK: - Header
                     headerSection
-
-                    // MARK: - Count Cards
                     countCardsSection
-
-                    // MARK: - Featured Course Card
                     featuredCourseSection
-
                     Spacer()
                 }
                 .padding()
@@ -34,9 +25,6 @@ struct HomeView: View {
         }
     }
 
-    // MARK: - Sub-views
-
-    /// Title and description header.
     private var headerSection: some View {
         VStack(spacing: 6) {
             Text("Campus Guide")
@@ -51,7 +39,6 @@ struct HomeView: View {
         .padding(.top, 8)
     }
 
-    /// Two side-by-side cards showing course and facility counts.
     private var countCardsSection: some View {
         HStack(spacing: 16) {
             StatCard(
@@ -69,7 +56,6 @@ struct HomeView: View {
         }
     }
 
-    /// Card highlighting the first (featured) course.
     @ViewBuilder
     private var featuredCourseSection: some View {
         if let course = viewModel.featuredCourse {
@@ -94,9 +80,6 @@ struct HomeView: View {
     }
 }
 
-// MARK: - Reusable Stat Card
-
-/// A small card displaying an icon, a count, and a label.
 struct StatCard: View {
     let icon: String
     let count: Int
@@ -124,8 +107,6 @@ struct StatCard: View {
         .cornerRadius(14)
     }
 }
-
-// MARK: - Preview
 
 #Preview {
     HomeView(viewModel: CampusViewModel())

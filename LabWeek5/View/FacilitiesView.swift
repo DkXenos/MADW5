@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-/// Displays a list of campus facilities.
-/// Tapping a row navigates to the facility detail page.
 struct FacilitiesView: View {
     var viewModel: CampusViewModel
 
@@ -24,9 +22,6 @@ struct FacilitiesView: View {
     }
 }
 
-// MARK: - Row Component
-
-/// A single row in the facilities list showing icon, name, and location.
 struct FacilityRow: View {
     let facility: Facility
 
@@ -48,8 +43,6 @@ struct FacilityRow: View {
         .padding(.vertical, 4)
     }
 }
-
-// MARK: - Preview
 
 #Preview {
     FacilitiesView(viewModel: CampusViewModel())
