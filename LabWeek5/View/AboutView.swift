@@ -11,9 +11,6 @@ struct AboutView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 16) {
-
-                Spacer()
-
                 Image(systemName: "info.circle.fill")
                     .resizable()
                     .scaledToFit()

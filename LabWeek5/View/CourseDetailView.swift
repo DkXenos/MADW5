@@ -20,6 +20,11 @@ struct CourseDetailView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
+                Text(liveCourse.name)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+
                 StatusBadge(status: liveCourse.status)
 
                 Image(systemName: liveCourse.lecturerImageName)
@@ -30,6 +35,9 @@ struct CourseDetailView: View {
 
                 Text(liveCourse.lecturer)
                     .font(.subheadline)
+
+                Text("Lecturer")
+                    .font(.caption)
                     .foregroundStyle(.secondary)
 
                 HStack {
