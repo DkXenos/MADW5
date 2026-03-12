@@ -27,10 +27,11 @@ struct CourseRow: View {
 
     var body: some View {
         HStack {
-            Image(systemName: course.lecturerImageName)
-                .font(.title2)
-                .foregroundStyle(.gray)
-                .frame(width: 36)
+            Image(course.lecturerImageName)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 36, height: 36)
+                .clipShape(Circle())
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(course.name)

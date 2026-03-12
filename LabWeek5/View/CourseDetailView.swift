@@ -27,11 +27,11 @@ struct CourseDetailView: View {
 
                 StatusBadge(status: liveCourse.status)
 
-                Image(systemName: liveCourse.lecturerImageName)
+                Image(liveCourse.lecturerImageName)
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .frame(width: 90, height: 90)
-                    .foregroundStyle(.gray)
+                    .clipShape(Circle())
 
                 Text(liveCourse.lecturer)
                     .font(.subheadline)

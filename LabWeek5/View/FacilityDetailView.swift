@@ -13,13 +13,12 @@ struct FacilityDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Image(systemName: facility.iconName)
+                Image(facility.imageName)
                     .resizable()
-                    .scaledToFit()
+                    .scaledToFill()
                     .frame(height: 200)
                     .frame(maxWidth: .infinity)
-                    .foregroundStyle(.blue.opacity(0.6))
-                    .background(Color(.systemGray6))
+                    .clipped()
                     .cornerRadius(12)
 
                 Text(facility.name)
