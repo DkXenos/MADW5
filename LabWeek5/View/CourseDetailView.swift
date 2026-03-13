@@ -19,53 +19,64 @@ struct CourseDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
+            VStack(spacing: 24) {
                 Text(liveCourse.name)
-                    .font(.title2)
+                    .font(.title)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
+                    .padding(.horizontal)
 
                 StatusBadge(status: liveCourse.status)
-
-                Image(liveCourse.lecturerImageName)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 90, height: 90)
-                    .clipShape(Circle())
-
-                Text(liveCourse.lecturer)
-                    .font(.subheadline)
-
-                Text("Lecturer")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                
+                VStack(spacing: 8) {
+                    Image(liveCourse.lecturerImageName.isEmpty ? "person.crop.circle.fill" : liveCourse.lecturerImageName)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 120, height: 120)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.gray.opacity(0.2), lineWidth: 1))
+                    
+                    Text(liveCourse.lecturer)
+                        .font(.title3)
+                        .fontWeight(.bold)
+                    
+                    Text("Lecturer")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(.top, 8)
 
                 HStack {
                     Text("Credits")
-                        .fontWeight(.semibold)
+                        .font(.headline)
+                        .fontWeight(.bold)
                     Spacer()
                     Text("\(liveCourse.credits)")
+                        .foregroundStyle(.secondary)
                 }
                 .padding()
                 .background(Color(.systemGray6))
-                .cornerRadius(10)
+                .cornerRadius(12)
+                .padding(.horizontal)
 
                 Button {
                     showMoreInfo = true
                 } label: {
                     Text("More Information")
-                        .fontWeight(.semibold)
+                        .font(.headline)
                         .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.blue)
-                        .cornerRadius(12)
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 12)
+                        .background(Color.blue)
+                        .clipShape(Capsule())
                 }
+                .padding(.top, 24)
             }
-            .padding()
+            .padding(.top, 20)
+            .padding(.bottom, 40)
         }
         .navigationTitle("Course Detail")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.large)
         .sheet(isPresented: $showMoreInfo) {
             CourseMoreInfoView(course: liveCourse, viewModel: viewModel)
         }

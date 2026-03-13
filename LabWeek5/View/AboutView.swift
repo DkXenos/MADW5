@@ -28,6 +28,10 @@ struct AboutView: View {
                 Text("Jason Tio")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+                Text("0706012410006")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+
 
                 Text("Exercise Week 5 - Navigation Pt.2")
                     .font(.subheadline)
@@ -42,7 +46,7 @@ struct AboutView: View {
             }
             .frame(maxWidth: .infinity)
             .padding()
-            .navigationTitle("About")
+//            .navigationTitle("About")
         }
     }
 }

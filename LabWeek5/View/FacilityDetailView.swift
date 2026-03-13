@@ -15,7 +15,6 @@ struct FacilityDetailView: View {
             VStack(alignment: .leading, spacing: 16) {
                 Image(facility.imageName)
                     .resizable()
-                    .scaledToFill()
                     .frame(height: 200)
                     .frame(maxWidth: .infinity)
                     .clipped()
@@ -41,7 +40,7 @@ struct FacilityDetailView: View {
             .padding()
         }
         .navigationTitle("Facility Detail")
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
